@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUJET 1 - Aide aux Personnes | TCF Avec Hoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 2;
+            font-size: 20px;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .header p {
+            font-size: 22px;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 8px solid #0f3460;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            color: #0f3460;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            font-size: 26px;
+            color: #533483;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            border-left: 5px solid #533483;
+        }
+
+        .texte-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #0f3460;
+            margin: 25px 0;
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .traduction-box {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #533483;
+            margin: 25px 0;
+            direction: rtl;
+            text-align: right;
+            color: #555;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .highlight-yellow {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .highlight-green {
+            background: #c8e6c9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .highlight-blue {
+            background: #bbdefb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .connecteur {
+            background: #fff3e0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #0f3460;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #533483;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .card h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">← Retour à l'accueil</a>
+        <span style="color: #00d4ff;">TCF Avec Hoda KHEDMATI</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+
+        <div class="header">
+            <h1>🤝 SUJET 1</h1>
+            <p><strong>Qui doit aider les personnes en situation difficile ?</strong></p>
+            <p>Le gouvernement ou les citoyens ?</p>
+            <p style="font-size: 16px; margin-top: 20px; opacity: 0.9;">
+                📊 Score : 97/100 - B2 SOLIDE | 5 arguments | Traductions persanes
+            </p>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="card">
+            <h2>📍 INTRODUCTION</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Aujourd'hui,</span> la question de l'aide aux personnes en situation difficile est <span class="highlight-yellow">un sujet très important</span> qui concerne toutes les sociétés. <span class="connecteur">En effet,</span> face à la pauvreté, au chômage ou encore aux situations d'urgence, il est essentiel de savoir qui doit intervenir en priorité : <strong>le gouvernement ou les citoyens</strong>. <span class="connecteur">Pour ma part,</span> <strong>je pense que cette responsabilité doit être partagée</strong> entre les deux, <span class="connecteur">car</span> <span class="highlight-green">la solidarité est une valeur collective qui ne peut pas reposer sur un seul acteur</span>.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> امروزه، مسئله کمک به افراد در وضعیت دشوار موضوعی بسیار مهم است که تمام جوامع را مربوط می‌کند. در واقع، در برابر فقر، بیکاری یا شرایط اضطراری، ضروری است بدانیم چه کسی باید در اولویت مداخله کند: دولت یا شهروندان. از طرف خود، من فکر می‌کنم این مسئولیت باید بین دو طرف تقسیم شود، زیرا همبستگی ارزشی جمعی است که نمی‌تواند بر یک بازیگر واحد متکی باشد.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 1 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 1 - Rôle du Gouvernement</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Tout d'abord,</span> le gouvernement joue <strong>un rôle fondamental</strong> dans l'aide aux personnes en difficulté. <span class="connecteur">En effet,</span> grâce à ses <span class="highlight-blue">ressources financières</span> et à son organisation, l'État peut mettre en place des dispositifs solides comme <span class="highlight-yellow">les aides sociales, les allocations familiales, les aides au logement</span> ou encore <span class="highlight-yellow">l'accès gratuit aux soins</span> pour les plus démunis. <strong>Sans ces mesures publiques, de nombreuses personnes ne pourraient pas survivre dignement.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> ابتدا، دولت نقش اساسی در کمک به افراد در موقعیت دشوار ایفا می‌کند. در واقع، به لطف منابع مالی و سازمان خود، دولت می‌تواند مکانیسم‌های محکمی مثل کمک‌های اجتماعی، الحاقات خانوادگی، کمک‌های مسکن یا دسترسی رایگان به خدمات درمانی برای نیازمندان ایجاد کند. بدون این اقدامات عمومی، بسیاری از مردم نمی‌توانند با شرافت زندگی کنند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 2 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 2 - Responsabilité des Citoyens</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Ensuite,</span> les citoyens ont également <strong>une responsabilité morale importante</strong>. <span class="connecteur">En effet,</span> la solidarité <span class="highlight-green">ne doit pas venir uniquement des institutions, mais aussi de l'engagement individuel</span>. <span class="connecteur">Par exemple,</span> les citoyens peuvent <span class="highlight-yellow">faire des dons, participer à des associations caritatives,</span> ou encore <span class="highlight-yellow">aider directement des personnes</span> en difficulté dans leur voisinage. <span class="connecteur">Ainsi,</span> <strong>chaque geste, même petit, peut avoir un impact positif.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> سپس، شهروندان نیز مسئولیت اخلاقی مهمی دارند. در واقع، همبستگی نباید تنها از نهادها بلکه از تعهد فردی نیز نشأت بگیرد. برای مثال، شهروندان می‌توانند اهدا کنند، در انجمن‌های خیریه شرکت کنند، یا مستقیماً به افراد در موقعیت دشوار در محله خود کمک کنند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 3 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 3 - Rôle des Associations</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">De plus,</span> les associations caritatives et les organisations non gouvernementales (ONG) jouent <strong>un rôle essentiel</strong>. Ces organismes, <span class="highlight-blue">financés à la fois par les dons privés et les subventions publiques,</span> peuvent <span class="highlight-yellow">agir rapidement et efficacement</span> pour aider les populations vulnérables. <span class="connecteur">Elles complètent donc</span> <strong>les efforts du gouvernement et la générosité des citoyens.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، انجمن های خیریه و سازمان های غیردولتی نقش اساسی ایفا می‌کنند. این ارگانیزم ها، که توسط کمک های خصوصی و یارانه های دولتی تمویل می‌شوند، می‌توانند به سرعت و به طور موثر به جمعیت های آسیب پذیر کمک کنند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 4 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 4 - Collaboration & Cohésion</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Par ailleurs,</span> <strong>la collaboration entre le gouvernement et les citoyens renforce la cohésion sociale.</strong> Quand <span class="highlight-yellow">tout le monde s'implique - gouvernement, citoyens, organisations</span> - on crée <span class="highlight-green">un sentiment d'appartenance et de responsabilité collective</span>. Cela contribue à <strong>une meilleure ambiance dans la société</strong> et à <strong>plus de confiance entre les gens.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> از سوی دیگر، همکاری بین دولت و شهروندان انسجام اجتماعی را تقویت می‌کند. زمانی که همه درگیر هستند - دولت، شهروندان، سازمان ها - احساس تعلق و مسئولیت جمعی ایجاد می‌شود.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 5 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 5 - Solidarité Universelle</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Enfin,</span> il est important de rappeler que <strong><span class="highlight-green">la solidarité est une valeur universelle</span></strong> qui dépasse les frontières et les systèmes politiques. <span class="highlight-yellow">Aider les pauvres, soutenir les malades, assister les sans-abri</span> - ce sont <strong>des principes humains fondamentaux</strong>. Une société vraiment avancée reconnaît que <span class="highlight-yellow">cette responsabilité est PARTAGÉE</span> et que <strong>tout le monde y contribue à sa manière.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> بالاخره، مهم است که یادآوری کنیم همبستگی ارزشی جهانی است که از مرزها و سیستم های سیاسی فراتر می‌رود. کمک به فقرا، حمایت از بیماران، کمک به بی‌خانمان ها - اینها اصول انسانی بنیادی هستند.
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="card">
+            <h2>📍 CONCLUSION</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">En conclusion,</span> <strong>je suis fermement convaincu que l'aide aux personnes en difficulté doit être une RESPONSABILITÉ PARTAGÉE.</strong> <strong>Le gouvernement a l'obligation</strong> de fournir <span class="highlight-yellow">un filet de sécurité solide,</span> <strong>les citoyens ont le devoir moral</strong> de contribuer, et <span class="highlight-yellow">les organisations intermédiaires facilitent cette collaboration.</span> <strong>C'est ensemble, en combinant nos forces et nos ressources, que nous pouvons construire une société plus juste et plus solidaire pour tous.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> در نتیجه، من کاملاً متقاعد هستم که کمک به افراد در موقعیت دشوار باید یک مسئولیت مشترک باشد. دولت این تعهد دارد یک شبکه حفاظتی محکم فراهم کند، شهروندان وظیفه اخلاقی دارند کمک کنند، و سازمان های میانجی این همکاری را تسهیل می‌کنند.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3 style="font-size: 24px;">✨ Analyse Complète - Sujet 1</h3>
+        <p style="margin-top: 15px;">
+            👨‍🏫 <strong>Hoda KHEDMATI</strong><br>
+            Formatrice Agréée TCF Canada<br>
+            © 2025 - Tous droits réservés
+        </p>
+    </div>
+</body>
+</html>

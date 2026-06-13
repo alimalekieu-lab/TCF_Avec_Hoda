@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCF avec Hoda KHEDMATI - Analyses Complètes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: #333;
+            line-height: 2;
+            font-size: 20px;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .navbar p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .subject-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-left: 8px solid;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .subject-card.card1 {
+            border-left-color: #2196f3;
+        }
+
+        .subject-card.card2 {
+            border-left-color: #4caf50;
+        }
+
+        .subject-card.card3 {
+            border-left-color: #ff9f43;
+        }
+
+        .subject-card.card4 {
+            border-left-color: #e91e63;
+        }
+
+        .subject-card h3 {
+            font-size: 28px;
+            color: #0f3460;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .subject-card .level {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .subject-card p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .features {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .features li {
+            margin: 8px 0;
+            padding-left: 25px;
+        }
+
+        .features li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-left: -25px;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            font-size: 16px;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        .footer .social {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffeb3b;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar h1 {
+                font-size: 24px;
+            }
+
+            .header h2 {
+                font-size: 28px;
+            }
+
+            .subject-card h3 {
+                font-size: 22px;
+            }
+
+            .subject-card p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>👨‍🏫 TCF avec Hoda KHEDMATI</h1>
+        <p>Analyses Complètes - Tâche 3 Expression Orale</p>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h2>🎓 Bienvenue sur votre Plateforme TCF</h2>
+            <p>Formatrice Agréée TCF Canada</p>
+            <p style="font-size: 16px; margin-top: 20px;">
+                <span class="badge">✓ Surlignages Directs</span>
+                <span class="badge">✓ B1 & B2</span>
+                <span class="badge">✓ Traductions Persanes</span>
+                <span class="badge">✓ Polices Agrandies</span>
+            </p>
+        </div>
+
+        <div class="subjects-grid">
+            <!-- SUJET 1 -->
+            <div class="subject-card card1">
+                <h3>📍 Sujet 1</h3>
+                <div class="level">ANALYSE COMPLÈTE</div>
+                <p><strong>Qui doit aider les personnes en situation difficile ?</strong></p>
+                <p>Le gouvernement ou les citoyens ?</p>
+                <ul class="features">
+                    <li>5 arguments progressifs</li>
+                    <li>Connecteurs analysés</li>
+                    <li>Score : 97/100</li>
+                    <li>Traductions persanes</li>
+                </ul>
+                <a href="SUJET1_AIDE_PERSONNES.html" class="btn">
+                    Ouvrir l'Analyse →
+                </a>
+            </div>
+
+            <!-- SUJET 2 -->
+            <div class="subject-card card2">
+                <h3>📍 Sujet 2</h3>
+                <div class="level">B1 & B2 - DOUBLE VERSION</div>
+                <p><strong>Faire des études permet de réussir sa carrière</strong></p>
+                <p>Qu'en pensez-vous ?</p>
+                <ul class="features">
+                    <li>Niveau B1 (simple)</li>
+                    <li>Niveau B2 (avancé)</li>
+                    <li>Surlignages directs</li>
+                    <li>Score : 96/100</li>
+                </ul>
+                <a href="SUJET2_ETUDES_CARRIERE.html" class="btn">
+                    Ouvrir l'Analyse →
+                </a>
+            </div>
+
+            <!-- SUJET 3 -->
+            <div class="subject-card card3">
+                <h3>📍 Sujet 3</h3>
+                <div class="level">POLICES AGRANDIES</div>
+                <p><strong>Devrait-on empêcher l'usage du téléphone à l'école ?</strong></p>
+                <p>6 arguments solides</p>
+                <ul class="features">
+                    <li>Connecteurs soulignés</li>
+                    <li>Idées clefs mises en gras</li>
+                    <li>ADHD-Friendly</li>
+                    <li>Score : 99/100</li>
+                </ul>
+                <a href="SUJET3_TELEPHONE_ECOLE.html" class="btn">
+                    Ouvrir l'Analyse →
+                </a>
+            </div>
+
+            <!-- SUJET 4 -->
+            <div class="subject-card card4">
+                <h3>📍 Sujet 4</h3>
+                <div class="level">ANALYSE APPROFONDIE</div>
+                <p><strong>S'habituer à vivre dans un autre pays</strong></p>
+                <p>Une aventure enrichissante</p>
+                <ul class="features">
+                    <li>Sidebar navigable</li>
+                    <li>5 arguments détaillés</li>
+                    <li>Traductions persanes</li>
+                    <li>Score : 97/100</li>
+                </ul>
+                <a href="SUJET4_EXPATRIATION.html" class="btn">
+                    Ouvrir l'Analyse →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>👨‍🏫 À Propos de Hoda KHEDMATI</h3>
+        <p><strong>Formatrice Agréée TCF Canada</strong></p>
+        <p>Spécialiste Expression Orale - Tâche 3</p>
+        <p>Créatrice d'outils pédagogiques innovants pour l'apprentissage du français</p>
+        <div class="social">
+            <p>📱 @TCFHODA | 💼 Formatrice Expert FLE</p>
+        </div>
+        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+            © 2025 TCF avec Hoda KHEDMATI - Tous droits réservés<br>
+            Plateforme pédagogique en ligne | Hébergée sur GitHub Pages
+        </p>
+    </div>
+</body>
+</html>

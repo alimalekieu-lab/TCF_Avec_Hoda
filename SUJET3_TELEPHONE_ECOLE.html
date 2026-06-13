@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUJET 3 - Téléphone à l'École | TCF Avec Hoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 2.2;
+            font-size: 24px;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 24px;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 8px solid #ff9f43;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            color: #0f3460;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .texte-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #0f3460;
+            margin: 30px 0;
+            font-size: 22px;
+            line-height: 2.2;
+        }
+
+        .traduction-box {
+            background: #f0f0f0;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #533483;
+            margin: 30px 0;
+            direction: rtl;
+            text-align: right;
+            color: #555;
+            font-size: 20px;
+            line-height: 2.2;
+        }
+
+        strong {
+            font-weight: bold;
+            color: #0f3460;
+        }
+
+        .highlight-yellow {
+            background: #ffeb3b;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .highlight-green {
+            background: #c8e6c9;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .highlight-blue {
+            background: #bbdefb;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .connecteur {
+            background: #fff3e0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #0f3460;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .btn-back:hover {
+            background: #533483;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 18px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .card h2 {
+                font-size: 26px;
+            }
+
+            .texte-box, .traduction-box {
+                font-size: 18px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">← Retour à l'accueil</a>
+        <span style="color: #00d4ff;">TCF Avec Hoda KHEDMATI</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+
+        <div class="header">
+            <h1>📱 SUJET 3</h1>
+            <p><strong>Devrait-on empêcher l'usage du téléphone à l'école ?</strong></p>
+            <p style="font-size: 18px; margin-top: 20px; opacity: 0.9;">
+                📊 Score : 99/100 - B2+ À C1 | POLICES AGRANDIES | 6 arguments
+            </p>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="card">
+            <h2>📍 INTRODUCTION</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Aujourd'hui,</span> le téléphone portable fait <strong>partie intégrante de la vie quotidienne des élèves.</strong> Il est devenu <strong>un outil très utilisé</strong> pour communiquer, se divertir et même parfois apprendre. <span class="connecteur">Cependant,</span> son usage à l'école <span class="highlight-yellow">suscite de nombreux débats.</span> <span class="connecteur">Personnellement,</span> <strong>je suis convaincu que les études jouent un rôle important</strong> dans la réussite professionnelle, <span class="highlight-green">même si elles ne suffisent pas toujours à elles seules.</span> Je tiens à aborder les raisons pour lesquelles je suis de cet avis.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> امروزه تلفن همراه بخشی جدایی ناپذیر از زندگی روزمره دانش‌آموزان است. این ابزار بسیار برای ارتباط، سرگرمی و حتی بعضی اوقات برای یادگیری استفاده می‌شود. با این حال، استفاده از آن در مدرسه بحث‌های زیادی را برانگیخته است.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 1 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 1 - Source de Distraction</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Tout d'abord,</span> le téléphone portable <strong>constitue une source importante de distraction</strong> en classe. <span class="connecteur">En effet,</span> <span class="highlight-yellow">même lorsque les élèves sont censés suivre le cours,</span> ils peuvent être tentés de regarder leurs messages, de naviguer sur les réseaux sociaux ou de jouer à des jeux. <span class="connecteur">Par conséquent,</span> <strong>leur attention diminue fortement</strong> et cela <strong>affecte directement leur compréhension</strong> des leçons et leurs résultats scolaires.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> اول و آخر، تلفن همراه منبع مهمی از حواس پرتی در کلاس است. در واقع، حتی زمانی که دانش‌آموزان قرار است درس را دنبال کنند، می‌توانند وسوسه شوند که به پیام‌های خود نگاه کنند یا در شبکه‌های اجتماعی جستجو کنند. در نتیجه، توجه آنها بسیار کاهش می‌یابد.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 2 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 2 - Perturbation du Cours</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Ensuite,</span> <strong>l'utilisation des téléphones peut perturber le déroulement des cours.</strong> <span class="connecteur">Par exemple,</span> <span class="highlight-yellow">une sonnerie inattendue, des notifications ou une utilisation non autorisée</span> peuvent <strong>interrompre l'enseignant</strong> et <strong>casser le rythme du cours.</strong> <span class="connecteur">Ainsi,</span> non seulement l'élève concerné <strong>perd une partie du contenu,</strong> mais <strong>toute la classe est également dérangée,</strong> ce qui crée <span class="highlight-green">un climat de travail moins sérieux et moins efficace.</span>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> سپس، استفاده از تلفن‌ها می‌تواند روند درس را مختل کند. برای مثال، یک زنگ غیرمنتظره، اطلاعات‌رسانی یا استفاده غیرمجاز می‌تواند معلم را قطع کند. بنابراین، نه تنها دانش‌آموز مربوطه بخشی از محتوا را از دست می‌دهد، بلکه کل کلاس نیز مختل می‌شود.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 3 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 3 - Communication Réelle</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">De plus,</span> <strong>limiter l'usage du téléphone portable à l'école</strong> peut <span class="highlight-yellow">favoriser la communication réelle</span> entre les élèves. <span class="connecteur">En effet,</span> <span class="highlight-blue">sans écran, les élèves sont plus enclins à discuter</span> entre eux, à travailler en groupe et à <strong>développer des relations sociales plus authentiques.</strong> Cela contribue à <strong>améliorer l'ambiance générale</strong> dans l'établissement et à <strong>renforcer la cohésion</strong> entre les élèves.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، محدود کردن استفاده از تلفن همراه در مدرسه می‌تواند ارتباط واقعی بین دانش‌آموزان را تقویت کند. در واقع، بدون صفحه‌نمایش، دانش‌آموزان بیشتر تمایل دارند با یکدیگر بحث کنند و روابط اجتماعی واقعی‌تری ایجاد کنند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 4 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 4 - Lieu d'Apprentissage</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Par ailleurs,</span> <strong>il est important de rappeler que l'école est avant tout un lieu d'apprentissage</strong> et <span class="highlight-yellow">de concentration.</span> <span class="highlight-blue">L'objectif principal est d'acquérir des connaissances</span> et <strong>de développer des compétences.</strong> <span class="connecteur">Or,</span> le téléphone portable <strong>peut détourner les élèves</strong> de cet objectif. <span class="connecteur">En réduisant</span> son usage, on encourage donc <span class="highlight-green">de meilleures habitudes de travail, plus de sérieux et une meilleure discipline.</span>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> از سوی دیگر، مهم است به یاد بیاوریم که مدرسه پیش از هر چیز جای یادگیری و تمرکز است. هدف اصلی کسب دانش و توسعه مهارت‌ها است. اما تلفن همراه می‌تواند دانش‌آموزان را از این هدف منحرف کند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 5 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 5 - Encadrement Strict</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">En outre,</span> <span class="highlight-yellow">même si le téléphone peut parfois être utilisé</span> comme <strong>un outil pédagogique,</strong> cela doit <strong>rester très encadré</strong> par les enseignants. <span class="highlight-blue">Sans règles strictes,</span> son utilisation <strong>peut rapidement devenir excessive</strong> et <strong>contre-productive.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، حتی اگر تلفن گاهی می‌تواند به عنوان ابزار آموزشی استفاده شود، این باید تحت نظارت دقیق معلمان باقی بماند. بدون قوانین سخت‌گیرانه، استفاده از آن می‌تواند سریع بیش از حد و ضد بهره‌وری شود.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 6 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 6 - Gestion du Temps</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Enfin,</span> <strong>il est également important de souligner</strong> que <span class="highlight-yellow">cette mesure peut aider les élèves</span> à <strong>mieux gérer leur temps</strong> et <strong>leur dépendance aux écrans.</strong> Cela leur permet de <span class="highlight-green">développer plus de concentration, d'autonomie et de responsabilité</span> dans leur comportement.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> بالاخره، مهم است که تاکید کنیم این اقدام می‌تواند کمک کند تا دانش‌آموزان بهتر بر زمان و وابستگی خود به صفحه‌نمایش کنترل داشته باشند. این به آنها اجازه می‌دهد تا تمرکز بیشتر، خود‌مختاری و مسئولیت‌پذیری بیشتر در رفتار خود ایجاد کنند.
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="card">
+            <h2>📍 CONCLUSION</h2>
+
+            <div class="texte-box">
+                <span class="connecteur">Pour conclure,</span> <strong>je pense qu'il est nécessaire de limiter fortement,</strong> voire <strong>d'interdire l'usage du téléphone portable à l'école.</strong> Cela permettrait <span class="highlight-yellow">d'améliorer la concentration des élèves,</span> <span class="highlight-yellow">de réduire les perturbations en classe</span> et <span class="highlight-green">de favoriser un environnement scolaire plus sérieux et plus propice à la réussite.</span>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> در پایان، من فکر می‌کنم که لازم است استفاده از تلفن همراه در مدرسه را شدید محدود یا حتی ممنوع کنیم. این باعث بهبود تمرکز دانش‌آموزان و کاهش اختلالات در کلاس می‌شود.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3 style="font-size: 24px;">✨ Analyse Complète - Sujet 3</h3>
+        <p style="margin-top: 15px;">
+            👨‍🏫 <strong>Hoda KHEDMATI</strong><br>
+            Formatrice Agréée TCF Canada<br>
+            © 2025 - Tous droits réservés
+        </p>
+    </div>
+</body>
+</html>
