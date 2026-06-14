@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUJET 7 - Tri des Déchets | TCF Avec Hoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 2;
+            font-size: 20px;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 22px;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 8px solid #4caf50;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            color: #0f3460;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .version-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+
+        .version-b2 {
+            background: #2196f3;
+            color: white;
+        }
+
+        .version-tcf {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .texte-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid;
+            margin: 25px 0;
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .texte-box.b2 {
+            border-left-color: #2196f3;
+        }
+
+        .texte-box.tcf {
+            border-left-color: #9c27b0;
+        }
+
+        .traduction-box {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #533483;
+            margin: 25px 0;
+            direction: rtl;
+            text-align: right;
+            color: #555;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .highlight-yellow {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .highlight-green {
+            background: #c8e6c9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .highlight-blue {
+            background: #bbdefb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .highlight-purple {
+            background: #e1bee7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        .connecteur {
+            background: #fff3e0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #0f3460;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #533483;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        .comparison-note {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+            margin: 20px 0;
+            font-size: 16px;
+            color: #1565c0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .card h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">← Retour à l'accueil</a>
+        <span style="color: #00d4ff;">TCF Avec Hoda KHEDMATI</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+
+        <div class="header">
+            <h1>♻️ SUJET 7</h1>
+            <p><strong>Tout le monde peut participer au tri des déchets. Êtes-vous d'accord ?</strong></p>
+            <p style="font-size: 18px; margin-top: 20px; opacity: 0.9;">
+                📊 Score : 98/100 - B2+ | Double Version B2 & TCF Professionnel | 6 Arguments
+            </p>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="card">
+            <h2>📍 INTRODUCTION</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Aujourd'hui,</span> <span class="highlight-yellow">la protection de l'environnement est devenue un enjeu majeur</span> dans le monde entier. <strong>La pollution, l'accumulation des déchets et la dégradation de la nature inquiètent</strong> de plus en plus les populations. <span class="connecteur">Parmi les solutions proposées,</span> <strong>le tri des déchets est souvent présenté comme un geste simple et efficace.</strong> <span class="connecteur">Personnellement,</span> <span class="highlight-blue">je suis tout à fait d'accord avec l'idée que tout le monde peut participer</span> au tri des déchets, <span class="connecteur">car</span> <span class="highlight-green">il s'agit d'une action accessible, utile et indispensable</span> pour préserver notre planète.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">À l'époque contemporaine,</span> <span class="highlight-yellow">la sauvegarde de l'environnement s'est métamorphosée en enjeu prépondérant</span> à l'échelle mondiale. <strong>La pollution atmosphérique, l'accumulation exponentielle des déchets et la dégradation systématique de l'écosystème naturel</strong> <span class="highlight-purple">suscitent une inquiétude croissante au sein des populations.</span> <span class="connecteur">Parmi les stratégies proposées,</span> <strong>le tri sélectif des déchets constitue régulièrement un geste présenté comme étant à la fois simple et efficient.</strong> <span class="connecteur">Quant à mon positionnement personnel,</span> <span class="highlight-blue">je partage pleinement cette conviction selon laquelle l'ensemble des populations peut s'engager</span> dans le processus de tri des déchets, <span class="connecteur">car</span> <span class="highlight-green">il s'agit d'une action hautement accessible, bénéfique et fondamentale</span> pour la pérennité de notre planète.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> امروزه، حفاظت از محیط زیست یک چالش بزرگ در سراسر جهان شده است. آلودگی، تجمع زباله‌ها و تخریب طبیعت جمعیت را نگران می‌کنند. از جمله راه‌حل‌های پیشنهادی، مرتب‌سازی زباله‌ها اغلب به عنوان یک اقدام ساده و مؤثر ارائه می‌شود.
+            </div>
+
+            <div class="comparison-note">
+                💡 <strong>Différence clé :</strong> B2 = Claire et directe | TCF = Vocabulaire académique et nuances sophistiquées
+            </div>
+        </div>
+
+        <!-- ARGUMENT 1 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 1 - Une Pratique Simple</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Tout d'abord,</span> <strong>le tri des déchets est une pratique très simple à mettre en place</strong> dans la vie quotidienne. <span class="connecteur">En effet,</span> <span class="highlight-yellow">il suffit de respecter quelques règles de base,</span> comme <span class="highlight-blue">séparer le plastique, le papier, le verre et les déchets organiques.</span> <span class="connecteur">Grâce aux</span> <strong>différentes poubelles mises à disposition,</strong> <span class="highlight-green">chacun peut facilement adopter ce geste sans difficulté particulière.</span> <span class="connecteur">Même</span> <strong>les enfants peuvent apprendre rapidement</strong> ces bonnes habitudes à l'école ou à la maison.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En premier lieu,</span> <strong>le tri sélectif des déchets demeure une pratique aisément implantable</strong> dans l'existence quotidienne. <span class="connecteur">En réalité,</span> <span class="highlight-yellow">il suffit de se conformer à quelques prescriptions élémentaires,</span> <span class="highlight-purple">notamment la segmentation du plastique, du papier, du verre et de la matière organique.</span> <span class="connecteur">Grâce à</span> <strong>la multiplicité des conteneurs mis à disposition,</strong> <span class="highlight-green">chaque individu peut intégrer ce comportement sans rencontrer d'obstacle substantiel.</span> <span class="connecteur">Même</span> <strong>les enfants assimilent rapidement</strong> ces pratiques responsables dans le contexte scolaire ou domestique.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> اول، مرتب‌سازی زباله‌ها یک عمل بسیار ساده برای پیاده‌سازی در زندگی روزمره است. در واقع، کافی است چند قانون اساسی را رعایت کنید، مثل جداسازی پلاستیک، کاغذ، شیشه و زباله‌های آلی.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 2 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 2 - Rôle Essentiel pour l'Environnement</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Ensuite,</span> <strong>le tri des déchets joue un rôle essentiel dans la protection de l'environnement.</strong> <span class="connecteur">En effet,</span> <span class="highlight-yellow">lorsqu'on trie correctement, les matériaux peuvent être recyclés et réutilisés,</span> ce qui <span class="highlight-blue">réduit la pollution et limite l'exploitation excessive</span> des ressources naturelles. <span class="connecteur">Par conséquent,</span> <span class="highlight-green">cela permet de diminuer la quantité de déchets envoyés</span> dans les décharges ou incinérés, ce qui <strong>contribue directement à la préservation de notre écosystème.</strong>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">Ultérieurement,</span> <strong>le tri sélectif exerce une fonction prépondérante relativement à la préservation de l'environnement.</strong> <span class="connecteur">En vérité,</span> <span class="highlight-yellow">lorsque s'opère un tri rigoureux, les matériaux peuvent subir des processus de recyclage et d'upcycling,</span> ce qui <span class="highlight-purple">atténue les phénomènes de pollution et restreint l'extraction immodérée</span> des ressources naturelles. <span class="connecteur">En résultante,</span> <span class="highlight-green">cela engendre une diminution quantitative des effluents dirigés</span> vers les installations d'enfouissement ou de combustion, ce qui <strong>contribue de manière substantielle à la pérennité de notre écosystème.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> سپس، مرتب‌سازی زباله‌ها نقش اساسی در حفاظت از محیط زیست ایفا می‌کند. در واقع، زمانی که مرتب‌سازی صحیح انجام شود، مواد می‌توانند بازیافت و مجدداً استفاده شوند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 3 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 3 - Améliore la Gestion des Déchets</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">De plus,</span> <strong>cette pratique améliore considérablement la gestion des déchets dans les villes.</strong> <span class="connecteur">En effet,</span> <span class="highlight-yellow">lorsque les déchets sont bien séparés à la source,</span> <span class="highlight-blue">ils sont plus faciles à traiter</span> dans les centres de tri. <span class="connecteur">Cela rend</span> <strong>le processus de recyclage plus efficace et moins coûteux</strong> pour les collectivités locales. <span class="connecteur">Ainsi,</span> <span class="highlight-green">les villes peuvent mieux organiser la collecte et le traitement</span> des déchets tout en <strong>réduisant leur impact environnemental.</strong>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">Additionnellement,</span> <strong>cette pratique optimise considérablement la gestion des flux de déchets urbains.</strong> <span class="connecteur">En réalité,</span> <span class="highlight-yellow">lorsque s'effectue une ségrégation adéquate à la source,</span> <span class="highlight-purple">le traitement devient substantiellement facilité</span> dans les installations de tri spécialisées. <span class="connecteur">Cela engendre</span> <strong>un processus de recyclage davantage efficient et économiquement moins onéreux</strong> pour les municipalités. <span class="connecteur">En conséquence,</span> <span class="highlight-green">les collectivités urbaines peuvent mettre en œuvre une orchestration supérieure</span> des opérations de collecte et de traitement tout en <strong>minimisant leur empreinte environnementale.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، این عمل مدیریت زباله‌ها را در شهرها بهبود می‌بخشد. در واقع، زمانی که زباله‌ها به درستی در منبع جداسازی شوند، درمان آن‌ها در مراکز مرتب‌سازی آسان‌تر است.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 4 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 4 - Responsabilité Collective</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Par ailleurs,</span> <span class="highlight-yellow">il est important de souligner que le tri des déchets est une responsabilité collective.</span> <span class="connecteur">Chaque citoyen,</span> <strong>même en faisant un petit effort,</strong> <span class="highlight-blue">contribue à un changement global.</span> <span class="connecteur">En effet,</span> <span class="highlight-green">si des millions de personnes adoptent ce geste simple</span> au quotidien, <strong>les effets positifs deviennent très importants</strong> à l'échelle de la société. <span class="connecteur">C'est pourquoi</span> <strong>la participation de tous est essentielle</strong> pour obtenir des résultats significatifs.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">De surcroît,</span> <span class="highlight-yellow">il convient de souligner que le tri sélectif constitue une responsabilité d'essence collective.</span> <span class="connecteur">Chaque citoyen,</span> <strong>même en consentant à un investissement infime,</strong> <span class="highlight-purple">participe à une métamorphose de portée globale.</span> <span class="connecteur">En réalité,</span> <span class="highlight-green">si des populations massives s'engagent dans cette démarche élémentaire</span> quotidiennement, <strong>les répercussions positives s'amplifient</strong> au niveau de la structure sociale. <span class="connecteur">Voilà pourquoi</span> <strong>l'implication universelle demeure primordiale</strong> pour générer des résultats transformatifs.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> از طرف دیگر، مهم است که تاکید کنیم مرتب‌سازی زباله‌ها یک مسئولیت جمعی است. هر شهروند، حتی با تلاش کوچک، به تغییر جهانی کمک می‌کند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 5 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 5 - Sensibiliser les Générations Futures</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">En outre,</span> <strong>le tri des déchets permet aussi de sensibiliser les nouvelles générations</strong> à l'importance de l'écologie. <span class="connecteur">En apprenant</span> <span class="highlight-yellow">ces gestes dès le plus jeune âge,</span> <span class="highlight-blue">les enfants développent des habitudes responsables</span> qu'ils garderont à l'âge adulte. <span class="connecteur">Cela contribue</span> <span class="highlight-green">à former des citoyens plus conscients</span> des enjeux environnementaux et <strong>plus respectueux de la nature.</strong>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En sus,</span> <strong>le tri sélectif constitue un vecteur de sensibilisation</strong> des nouvelles générations relativement à la prépondérance des enjeux écologiques. <span class="connecteur">En inculquant</span> <span class="highlight-yellow">ces pratiques dès les stades précoces de l'existence,</span> <span class="highlight-purple">les enfants consolident des comportements responsables</span> qu'ils pérenniseront à l'âge adulte. <span class="connecteur">Cela contribue</span> <span class="highlight-green">à la formation de citoyens davantage avertis</span> relativement aux défis environnementaux et <strong>davantage dénués d'indifférence envers la préservation naturelle.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، مرتب‌سازی زباله‌ها همچنین اجازه می‌دهد نسل‌های جدید را نسبت به اهمیت اکولوژی آگاه کند. با یادگیری این اقدامات از کم‌سنی، کودکان عادات مسئول‌انه توسعه می‌دهند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 6 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 6 - Pas Besoin de Grands Moyens</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Enfin,</span> <span class="highlight-yellow">on peut dire que le tri des déchets ne demande ni beaucoup de temps ni de grands moyens.</span> <span class="connecteur">Il s'agit</span> <strong>simplement d'un changement de comportement facile à adopter,</strong> mais <span class="highlight-blue">qui peut avoir un impact très positif</span> sur le long terme. <span class="connecteur">Chaque personne</span> <span class="highlight-green">a donc un rôle à jouer</span> dans cette démarche écologique.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">Finalement,</span> <span class="highlight-yellow">on peut affirmer que le tri sélectif ne requiert ni investissements temporels considérables ni ressources substantielles.</span> <span class="connecteur">Il s'agit</span> <strong>exclusivement d'une mutation comportementale aisément assimilable,</strong> <span class="connecteur">néanmoins</span> <span class="highlight-purple">susceptible de générer un impact hautement bénéfique</span> dans une perspective diachronique. <span class="connecteur">Chaque individu</span> <span class="highlight-green">demeure donc détenteur d'une responsabilité</span> dans cette trajectoire écologique.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> بالاخره، می‌توان گفت که مرتب‌سازی زباله‌ها نه زمان زیادی نیاز دارد و نه منابع بزرگ. این صرفاً تغییری در رفتار است که به راحتی می‌تواند اتخاذ شود.
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="card">
+            <h2>📍 CONCLUSION</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Pour conclure,</span> <strong>je pense que tout le monde peut participer au tri des déchets sans difficulté.</strong> <span class="highlight-yellow">C'est un geste simple, accessible à tous</span> et <span class="highlight-green">essentiel pour protéger l'environnement.</span> <span class="connecteur">En adoptant</span> cette habitude au quotidien, <strong>chacun contribue à construire un avenir</strong> <span class="highlight-blue">plus propre, plus sain et plus durable</span> pour les générations futures.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En synthèse,</span> <strong>je suis persuadé que l'ensemble des populations peut s'engager dans le tri sélectif sans rencontrer d'obstacles majeurs.</strong> <span class="highlight-yellow">Il s'agit d'une démarche élémentaire, universellement accessible</span> et <span class="highlight-purple">capitale pour la sauvegarde de l'environnement.</span> <span class="connecteur">Par l'intégration</span> de cette pratique dans le quotidien, <strong>chaque individu participe à la construction d'une existence</strong> <span class="highlight-green">davantage hygiénique, plus favorable à la santé et davantage durable</span> pour les générations qui nous succéderont.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> برای نتیجه‌گیری، من فکر می‌کنم همه می‌توانند بدون سختی در مرتب‌سازی زباله‌ها شرکت کنند. این یک اقدام ساده و قابل دسترس برای همه است و برای حفاظت از محیط زیست ضروری است.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3 style="font-size: 24px;">✨ Analyse Double Niveau - Sujet 7</h3>
+        <p style="margin-top: 15px;">
+            👨‍🏫 <strong>Hoda KHEDMATI</strong><br>
+            Formatrice Agréée TCF Canada<br>
+            Système B2 + B2+ TCF Professionnel<br>
+            © 2025 - Tous droits réservés
+        </p>
+    </div>
+</body>
+</html>
