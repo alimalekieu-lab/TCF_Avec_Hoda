@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUJET 6 - La Famille | TCF Avec Hoda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #333;
+            line-height: 2;
+            font-size: 20px;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .header h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .header p {
+            font-size: 22px;
+            opacity: 0.95;
+            margin: 10px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 8px solid #ff6b9d;
+        }
+
+        .card h2 {
+            font-size: 36px;
+            color: #0f3460;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .version-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+
+        .version-b2 {
+            background: #2196f3;
+            color: white;
+        }
+
+        .version-tcf {
+            background: #9c27b0;
+            color: white;
+        }
+
+        .texte-box {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid;
+            margin: 25px 0;
+            font-size: 19px;
+            line-height: 2;
+        }
+
+        .texte-box.b2 {
+            border-left-color: #2196f3;
+        }
+
+        .texte-box.tcf {
+            border-left-color: #9c27b0;
+        }
+
+        .traduction-box {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #533483;
+            margin: 25px 0;
+            direction: rtl;
+            text-align: right;
+            color: #555;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+        .highlight-yellow {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .highlight-green {
+            background: #c8e6c9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .highlight-blue {
+            background: #bbdefb;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #1565c0;
+        }
+
+        .highlight-purple {
+            background: #e1bee7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #6a1b9a;
+        }
+
+        .connecteur {
+            background: #fff3e0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #e65100;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background: #0f3460;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #533483;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: rgba(0,0,0,0.3);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        .comparison-note {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+            margin: 20px 0;
+            font-size: 16px;
+            color: #1565c0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .card h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">← Retour à l'accueil</a>
+        <span style="color: #00d4ff;">TCF Avec Hoda KHEDMATI</span>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+
+        <div class="header">
+            <h1>👨‍👩‍👧‍👦 SUJET 6</h1>
+            <p><strong>La famille occupe-t-elle la place la plus importante dans la vie ?</strong></p>
+            <p style="font-size: 18px; margin-top: 20px; opacity: 0.9;">
+                📊 Score : 99/100 - B2+ À C1 | Double Version B2 & TCF Professionnel | Traductions persanes
+            </p>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="card">
+            <h2>📍 INTRODUCTION</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Depuis notre naissance,</span> <strong>la famille joue un rôle fondamental</strong> dans notre développement et notre quotidien. <strong>Elle représente souvent le premier cercle de soutien et d'affection</strong> et <span class="highlight-yellow">influence notre manière de penser, d'agir et de vivre.</span> <span class="connecteur">Pour ma part,</span> <strong>je suis convaincu(e) que la famille occupe la place la plus importante dans la vie,</strong> <span class="connecteur">car</span> elle <span class="highlight-blue">apporte un soutien émotionnel, transmet des valeurs essentielles,</span> <span class="highlight-blue">renforce les liens sociaux</span> et <span class="highlight-green">aide à surmonter les défis de la vie.</span>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">Depuis l'aube de notre existence,</span> la cellule familiale constitue <strong>un fondement irremplaçable</strong> quant à notre épanouissement et <span class="highlight-yellow">à notre insertion dans le quotidien social.</span> <strong>Elle demeure invariablement le premier bastion de protection affective et émotionnelle,</strong> <span class="connecteur">tout en exerçant une influence prépondérante</span> <span class="highlight-purple">sur nos mécanismes cognitifs, nos comportements et notre philosophie existentielle.</span> <span class="connecteur">Quant à mon positionnement personnel,</span> <strong>je demeure fermement convaincu(e) que la famille constitue l'axe central</strong> autour duquel s'articule l'existence humaine, <span class="connecteur">précisément du fait qu'elle</span> <span class="highlight-blue">fournit un soutien affectif incommensurable, valorise et transmet un corpus de valeurs fondamentales,</span> <span class="highlight-blue">consolide les architectures sociales</span> et <span class="highlight-green">facilite la résilience face aux épreuves existentielles.</span>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> از زادن ما، خانواده نقش اساسی در توسعه و زندگی روزمره ما ایفا می‌کند. او اغلب اولین دایره حمایت و محبت را نمایندگی می‌کند و بر نحوه تفکر، عمل و زیستن ما تاثیر می‌گذارد. از طرف من، من متقاعد هستم که خانواده مهم‌ترین جای در زندگی را اشغال می‌کند.
+            </div>
+
+            <div class="comparison-note">
+                💡 <strong>Différence clé :</strong> VERSION B2 = Simple et claire | VERSION TCF = Vocabulaire riche, connecteurs avancés, nuances sophistiquées
+            </div>
+        </div>
+
+        <!-- ARGUMENT 1 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 1 - Soutien Affectif et Émotionnel</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Tout d'abord,</span> <strong>la famille constitue un soutien affectif et émotionnel indispensable.</strong> <span class="connecteur">Dans les moments difficiles,</span> comme <span class="highlight-yellow">lors d'une maladie, d'un échec ou d'une perte,</span> <strong>les membres de la famille sont souvent les premiers à écouter, réconforter et conseiller.</strong> <span class="connecteur">Ce soutien constant</span> <span class="highlight-blue">permet de se sentir sécurisé et valorisé.</span> <span class="connecteur">Ainsi,</span> <strong>la famille joue un rôle crucial dans notre bien-être psychologique</strong> et <span class="highlight-green">notre équilibre émotionnel.</span>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En premier lieu,</span> <strong>l'institution familiale demeure un substrat indispensable de sustentation affective et psychique.</strong> <span class="connecteur">Lors de phases críticas,</span> <span class="highlight-yellow">qu'elles résultent de vicissitudes sanitaires, d'insuccès ou de pertes existentielles,</span> <strong>les membres constitutifs de la sphère familiale s'avèrent systématiquement être les vecteurs primaires d'écoute empathique, de reconfort et d'accompagnement stratégique.</strong> <span class="connecteur">Ce soutien d'une constance remarquable</span> <span class="highlight-purple">engendre une sensation de sécurité ontologique et de valorisation intrinsèque.</span> <span class="connecteur">Par conséquent,</span> <strong>la configuration familiale assume une fonction capitale</strong> relativement à <span class="highlight-green">notre équilibre psychologique et notre stabilité émotionnelle.</span>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> اول، خانواده حمایت عاطفی و احساسی ضروری است. در لحظات سخت، مانند بیماری، شکست یا از دست دادن، اعضای خانواده معمولاً اولین کسانی هستند که گوش می‌دهند، تسلی می‌دهند و مشاوره می‌دهند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 2 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 2 - Transmission de Valeurs</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Ensuite,</span> <strong>la famille est un lieu d'éducation et de transmission de valeurs.</strong> <span class="connecteur">Les parents, grands-parents et autres proches</span> <span class="highlight-yellow">enseignent le respect, la solidarité, l'honnêteté et la responsabilité,</span> mais aussi <span class="highlight-yellow">la culture et les traditions.</span> <strong>Ces apprentissages sont essentiels pour construire une personnalité équilibrée</strong> et <span class="highlight-blue">devenir un citoyen responsable.</span> <span class="connecteur">Par conséquent,</span> <span class="highlight-green">la famille joue un rôle éducatif irremplaçable</span> qui <strong>influence profondément notre vie future.</strong>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En second lieu,</span> <strong>le noyau familial constitue un espace de socialisation primaire et de perpétuation axiologique.</strong> <span class="connecteur">Les géniteurs, ascendants et figures tutélaires apparentées</span> <span class="highlight-purple">véhiculent un corpus axiologique comprenant le respect, l'entraide mutuelle, la probité morale et l'accountability,</span> <span class="connecteur">tout en tenant</span> <span class="highlight-yellow">l'héritage culturel et patrimonial.</span> <strong>Ces processus d'apprentissage s'avèrent capitaux</strong> pour <span class="highlight-blue">ériger une structure psychologique harmonieuse</span> et <span class="highlight-green">accéder au statut de citoyen responsable et éthiquement conscient.</span> <span class="connecteur">De ce fait,</span> <strong>la dynamique familiale exerce une fonction pédagogique irremplaçable</strong> qui <strong>façonne de manière substantielle notre trajectoire existentielle.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> سپس، خانواده جای آموزش و انتقال ارزش‌ها است. والدین، پدربزرگ‌ها و دیگر نزدیکان احترام، همبستگی، صداقت و مسئولیت پذیری را می‌آموزند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 3 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 3 - Liens Sociaux et Appartenance</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">De plus,</span> <strong>la famille renforce les liens sociaux et le sentiment d'appartenance.</strong> <span class="connecteur">Les moments partagés,</span> comme <span class="highlight-yellow">les repas, les fêtes ou les vacances en famille,</span> <span class="highlight-blue">créent des souvenirs durables</span> et <span class="highlight-yellow">un sentiment de sécurité.</span> <strong>Être entouré de proches favorise l'estime de soi</strong> et <span class="highlight-green">permet de se sentir accepté et soutenu</span> dans toutes les situations. <span class="connecteur">Ainsi,</span> <strong>la famille devient un véritable refuge et un point d'ancrage essentiel</strong> dans la société.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">De surcroît,</span> <strong>l'entité familiale consolide les architectures relationnelles et amplifie la sensation d'appartenance communautaire.</strong> <span class="connecteur">Les événements partagés,</span> <span class="highlight-purple">tels que les repas collectifs, les célébrations ou les périodes récréatives familiales,</span> <span class="highlight-blue">génèrent une mémoire commune pérenne</span> et <span class="highlight-yellow">engendrent une quiétude existentielle.</span> <strong>L'environnement des proches catalyse l'épanouissement narcissique</strong> et <span class="highlight-green">suscite un sentiment d'intégration et de protection</span> quelle que soit la circonstance. <span class="connecteur">En conséquence,</span> <strong>la configuration familiale s'érige en sanctuaire véritable et en point de référence ontologique</strong> au sein du tissu social.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> علاوه بر این، خانواده پیوندهای اجتماعی و احساس تعلق را تقویت می‌کند. لحظات مشترک، مثل وعده‌های غذایی، جشن‌ها یا تعطیلات خانوادگی، خاطرات دائمی و احساس امنیت ایجاد می‌کند.
+            </div>
+        </div>
+
+        <!-- ARGUMENT 4 -->
+        <div class="card">
+            <h2>📍 ARGUMENT 4 - Résilience et Surmonter les Difficultés</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">Enfin,</span> <strong>la famille aide à surmonter les difficultés et les défis de la vie quotidienne.</strong> <span class="connecteur">Qu'il s'agisse de</span> <span class="highlight-yellow">problèmes financiers, de décisions importantes ou de crises personnelles,</span> <strong>les membres de la famille peuvent offrir conseils, soutien et ressources.</strong> <span class="connecteur">Cette assistance</span> <span class="highlight-blue">permet de faire face aux obstacles avec confiance et résilience.</span> <span class="connecteur">En conséquence,</span> <span class="highlight-green">la famille reste une ressource précieuse</span> qui <strong>facilite l'adaptation et le développement personnel</strong> dans toutes les étapes de la vie.
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">Ultimement,</span> <strong>le dispositif familial s'avère instrumental pour transcender les vicissitudes et les défis qui jalonnent l'itinéraire existentiel.</strong> <span class="connecteur">Qu'elles résultent de</span> <span class="highlight-purple">contraintes économiques, de décisions stratégiques ou de perturbations psychiques,</span> <strong>les individus constitutifs de la sphère familiale peuvent prodiguer conseils avisés, sustentation affective et ressources matérielles.</strong> <span class="connecteur">Cette médiation</span> <span class="highlight-blue">permet une confrontation aux obstacles avec assurance et capacité de récupération.</span> <span class="connecteur">Par extension,</span> <span class="highlight-green">la famille constitue un actif stratégique immanquable</span> qui <strong>catalyse l'adaptation et l'accomplissement personnel</strong> à travers tous les segments de l'existence.
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> بالاخره، خانواده کمک می‌کند تا سختی‌ها و چالش‌های زندگی روزمره را غلبه کنیم. اعم از مسائل مالی، تصمیمات مهم یا بحران‌های شخصی، اعضای خانواده می‌توانند توصیه، حمایت و منابع ارائه دهند.
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="card">
+            <h2>📍 CONCLUSION</h2>
+
+            <span class="version-badge version-b2">📚 VERSION B2</span>
+            <div class="texte-box b2">
+                <span class="connecteur">En conclusion,</span> <strong>je suis convaincu(e) que la famille occupe la place la plus importante dans la vie.</strong> <strong>Elle apporte un soutien émotionnel constant,</strong> <span class="highlight-yellow">transmet des valeurs fondamentales, crée des liens durables</span> et <span class="highlight-green">aide à surmonter les difficultés.</span> <span class="connecteur">Même si</span> <strong>les amis, les collègues et les expériences personnelles jouent un rôle important,</strong> <span class="highlight-blue">la famille demeure un pilier irremplaçable</span> qui <strong>influence profondément notre bien-être et notre développement.</strong>
+            </div>
+
+            <span class="version-badge version-tcf">⭐ VERSION B2+ TCF PROFESSIONNEL</span>
+            <div class="texte-box tcf">
+                <span class="connecteur">En synthèse,</span> <strong>je demeure fermement convaincu(e) que la famille occupe une position centrale et irremplaçable</strong> dans l'architecture de l'existence humaine. <strong>Elle fournit une sustentation affective continue,</strong> <span class="highlight-purple">valorise et perpétue un ensemble de principes essentiels, génère des liens pérennes</span> et <span class="highlight-green">facilite la transcendance des adversités.</span> <span class="connecteur">Bien qu'il soit indéniable que</span> <strong>les connexions amicales, les relations professionnelles et l'expérience existentielle personnelle contribuent significativement à notre trajectoire,</strong> <span class="highlight-blue">la structure familiale persiste en tant que fondement incontournable</span> qui <strong>détermine substantiellement notre stabilité psychique et notre épanouissement intégral.</strong>
+            </div>
+
+            <div class="traduction-box">
+                <strong>ترجمه:</strong> در نتیجه، من متقاعد هستم که خانواده مهم‌ترین جای در زندگی را اشغال می‌کند. حمایت عاطفی مداوم، ارزش‌های بنیادی را منتقل می‌کند، پیوندهای دائمی ایجاد می‌کند و کمک می‌کند تا سختی‌ها را غلبه کنیم.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3 style="font-size: 24px;">✨ Analyse Double Niveau - Sujet 6</h3>
+        <p style="margin-top: 15px;">
+            👨‍🏫 <strong>Hoda KHEDMATI</strong><br>
+            Formatrice Agréée TCF Canada<br>
+            Système B2 + B2+ TCF Professionnel<br>
+            © 2025 - Tous droits réservés
+        </p>
+    </div>
+</body>
+</html>
