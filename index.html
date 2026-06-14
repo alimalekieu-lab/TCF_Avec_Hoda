@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCF avec Hoda KHEDMATI - Plateforme Complète</title>
+    <title>TCF avec Hoda KHEDMATI</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Tahoma', Arial, Helvetica, sans-serif;
             background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
             color: #333;
             line-height: 2;
-            font-size: 20px;
             min-height: 100vh;
         }
 
         .navbar {
             background: rgba(0,0,0,0.3);
-            padding: 20px;
+            padding: 22px 20px;
             text-align: center;
             color: white;
             position: sticky;
@@ -30,136 +25,158 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
+        .navbar h1 { font-size: 30px; margin-bottom: 4px; }
+        .navbar p { font-size: 15px; opacity: 0.9; }
 
-        .navbar h1 {
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
 
-        .navbar p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .header {
+        .hero {
             text-align: center;
             color: white;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             padding: 40px;
             background: rgba(255,255,255,0.1);
             border-radius: 20px;
-            backdrop-filter: blur(10px);
+        }
+        .hero h2 { font-size: 38px; margin-bottom: 12px; }
+        .hero p { font-size: 18px; opacity: 0.95; }
+
+        /* جستجو */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 18px 55px 18px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            font-family: inherit;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .search-box input:focus { outline: 3px solid #00d4ff; }
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 22px;
         }
 
-        .header h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
+        /* تب دسته‌بندی */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .tab {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid transparent;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        .tab:hover { background: rgba(255,255,255,0.25); }
+        .tab.active {
+            background: white;
+            color: #0f3460;
+            border-color: #00d4ff;
         }
 
-        .header p {
-            font-size: 20px;
-            opacity: 0.95;
-            margin: 10px 0;
-        }
-
-        .subjects-grid {
+        /* کارت‌ها */
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
             margin-bottom: 60px;
         }
-
-        .subject-card {
+        .card {
             background: white;
-            padding: 35px;
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            border-left: 8px solid;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            border-right: 8px solid #2196f3;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
 
-        .subject-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        }
-
-        .subject-card.card1 { border-left-color: #2196f3; }
-        .subject-card.card2 { border-left-color: #4caf50; }
-        .subject-card.card3 { border-left-color: #ff9f43; }
-        .subject-card.card4 { border-left-color: #e91e63; }
-        .subject-card.card5 { border-left-color: #6f5ac3; }
-        .subject-card.card6 { border-left-color: #ff6b9d; }
-        .subject-card.card7 { border-left-color: #00bcd4; }
-
-        .subject-card h3 {
-            font-size: 28px;
-            color: #0f3460;
-            margin-bottom: 15px;
+        .card-cat {
+            display: inline-block;
+            font-size: 13px;
             font-weight: bold;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            align-self: flex-start;
         }
-
-        .subject-card .level {
+        .card h3 { font-size: 22px; color: #0f3460; margin-bottom: 6px; }
+        .card .fr {
+            font-size: 14px;
+            color: #888;
+            direction: ltr;
+            text-align: left;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .card-tags { margin-bottom: 18px; }
+        .card-tags span {
             display: inline-block;
             background: #f0f0f0;
-            padding: 6px 14px;
-            border-radius: 20px;
+            color: #555;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 15px;
+            margin: 3px 3px 3px 0;
+        }
+        .card-score {
             font-size: 14px;
-            font-weight: bold;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .subject-card p {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .features {
-            font-size: 16px;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        .features li {
-            margin: 8px 0;
-            padding-left: 25px;
-        }
-
-        .features li:before {
-            content: "✓ ";
             color: #4caf50;
             font-weight: bold;
-            margin-left: -25px;
-            margin-right: 10px;
+            margin-bottom: 16px;
         }
-
-        .btn {
-            display: inline-block;
+        .card .btn {
+            display: block;
+            text-align: center;
             background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
             color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            font-size: 17px;
+            margin-top: auto;
+            transition: all 0.3s;
+        }
+        .card .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            padding: 60px;
+            opacity: 0.8;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        .count {
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            margin-bottom: 25px;
+            font-size: 15px;
         }
 
         .footer {
@@ -167,154 +184,113 @@
             color: white;
             text-align: center;
             padding: 40px 20px;
-            margin-top: 60px;
             border-top: 2px solid rgba(255,255,255,0.2);
         }
-
-        .footer h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        .footer p {
-            font-size: 16px;
-            margin: 10px 0;
-            opacity: 0.9;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #ffeb3b;
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            margin: 5px;
-        }
+        .footer p { font-size: 15px; margin: 8px 0; opacity: 0.9; }
 
         @media (max-width: 768px) {
             .navbar h1 { font-size: 24px; }
-            .header h2 { font-size: 28px; }
-            .subject-card h3 { font-size: 22px; }
-            .subject-card p { font-size: 16px; }
-            .btn { padding: 12px 24px; font-size: 16px; }
+            .hero h2 { font-size: 26px; }
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <h1>👨‍🏫 TCF avec Hoda KHEDMATI</h1>
-        <p>Plateforme Complète - Tâche 3 Expression Orale | 7 Sujets</p>
+        <h1>👩‍🏫 TCF avec Hoda KHEDMATI</h1>
+        <p>مدرس رسمی TCF کانادا</p>
     </div>
 
     <div class="container">
-        <div class="header">
-            <h2>🎓 Bienvenue sur votre Plateforme TCF</h2>
-            <p>Formatrice Agréée TCF Canada - Système B2 + B2+ TCF Professionnel</p>
-            <p style="font-size: 16px; margin-top: 20px;">
-                <span class="badge">✓ 7 Sujets</span>
-                <span class="badge">✓ Double Version</span>
-                <span class="badge">✓ Traductions Persanes</span>
-                <span class="badge">✓ Scores 96-99/100</span>
-            </p>
+        <div class="hero">
+            <h2>🎓 پلتفرم آموزش فرانسه</h2>
+            <p>جزوه‌ها، تحلیل‌ها و منابع آموزشی — همه‌جا، رایگان</p>
         </div>
 
-        <div class="subjects-grid">
-            <!-- SUJET 1 -->
-            <div class="subject-card card1">
-                <h3>📍 Sujet 1</h3>
-                <div class="level">SIMPLE</div>
-                <p><strong>Aide aux personnes en situation difficile</strong></p>
-                <ul class="features">
-                    <li>5 arguments</li>
-                    <li>Score : 97/100</li>
-                </ul>
-                <a href="SUJET1_AIDE_PERSONNES.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 2 -->
-            <div class="subject-card card2">
-                <h3>📍 Sujet 2</h3>
-                <div class="level">B1 & B2</div>
-                <p><strong>Études & Carrière professionnelle</strong></p>
-                <ul class="features">
-                    <li>Double niveau</li>
-                    <li>Score : 96/100</li>
-                </ul>
-                <a href="SUJET2_ETUDES_CARRIERE.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 3 -->
-            <div class="subject-card card3">
-                <h3>📍 Sujet 3</h3>
-                <div class="level">POLICES ✓</div>
-                <p><strong>Téléphone à l'école</strong></p>
-                <ul class="features">
-                    <li>6 arguments</li>
-                    <li>Score : 99/100</li>
-                </ul>
-                <a href="SUJET3_TELEPHONE_ECOLE.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 4 -->
-            <div class="subject-card card4">
-                <h3>📍 Sujet 4</h3>
-                <div class="level">SIMPLE</div>
-                <p><strong>Expatriation & adaptation</strong></p>
-                <ul class="features">
-                    <li>5 arguments</li>
-                    <li>Score : 97/100</li>
-                </ul>
-                <a href="SUJET4_EXPATRIATION.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 5 -->
-            <div class="subject-card card5">
-                <h3>📍 Sujet 5</h3>
-                <div class="level">SIMPLE</div>
-                <p><strong>Relations à distance</strong></p>
-                <ul class="features">
-                    <li>4 arguments</li>
-                    <li>Score : 98/100</li>
-                </ul>
-                <a href="SUJET5_RELATIONS_DISTANCE.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 6 -->
-            <div class="subject-card card6">
-                <h3>📍 Sujet 6</h3>
-                <div class="level">B2 + TCF PRO ⭐</div>
-                <p><strong>La famille est-elle la plus importante ?</strong></p>
-                <ul class="features">
-                    <li>Double version avancée</li>
-                    <li>Score : 99/100</li>
-                </ul>
-                <a href="SUJET6_FAMILLE.html" class="btn">Ouvrir →</a>
-            </div>
-
-            <!-- SUJET 7 -->
-            <div class="subject-card card7">
-                <h3>📍 Sujet 7 ⭐ NOUVEAU</h3>
-                <div class="level">B2 + TCF PRO</div>
-                <p><strong>Tout le monde peut trier les déchets</strong></p>
-                <ul class="features">
-                    <li>Double version avancée</li>
-                    <li>Score : 98/100</li>
-                </ul>
-                <a href="SUJET7_TRI_DECHETS.html" class="btn">Ouvrir →</a>
-            </div>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="جستجو در جزوه‌ها..." oninput="render()">
         </div>
+
+        <div class="tabs" id="tabs"></div>
+
+        <div class="count" id="count"></div>
+
+        <div class="grid" id="grid"></div>
     </div>
 
     <div class="footer">
-        <h3>👨‍🏫 À Propos de Hoda KHEDMATI</h3>
-        <p><strong>Formatrice Agréée TCF Canada</strong></p>
-        <p>Spécialiste Expression Orale - Tâche 3</p>
-        <p>Créatrice d'outils pédagogiques innovants pour l'apprentissage du français</p>
-        <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
-            © 2025 TCF avec Hoda KHEDMATI | Plateforme en ligne | GitHub Pages
-        </p>
+        <p>👩‍🏫 <strong>Hoda KHEDMATI</strong> — مدرس رسمی TCF کانادا</p>
+        <p>متخصص بیان شفاهی — Tâche 3</p>
+        <p style="margin-top:18px; font-size:13px; opacity:0.7;">© 2025 — همه‌ی حقوق محفوظ است</p>
     </div>
+
+    <script src="data.js"></script>
+    <script>
+        let activeCat = "all";
+
+        // ساخت تب‌ها
+        function buildTabs() {
+            const tabs = document.getElementById("tabs");
+            let html = `<button class="tab ${activeCat==='all'?'active':''}" onclick="setCat('all')">🌟 همه</button>`;
+            CATEGORIES.forEach(cat => {
+                // فقط دسته‌هایی که حداقل یک جزوه دارن نشون داده شن
+                const has = LESSONS.some(l => l.category === cat.id);
+                if (has) {
+                    html += `<button class="tab ${activeCat===cat.id?'active':''}" onclick="setCat('${cat.id}')">${cat.label}</button>`;
+                }
+            });
+            tabs.innerHTML = html;
+        }
+
+        function setCat(cat) {
+            activeCat = cat;
+            buildTabs();
+            render();
+        }
+
+        function catInfo(id) {
+            return CATEGORIES.find(c => c.id === id) || { label: id, color: "#999" };
+        }
+
+        // رندر کارت‌ها
+        function render() {
+            const q = document.getElementById("search").value.trim().toLowerCase();
+            const grid = document.getElementById("grid");
+
+            let filtered = LESSONS.filter(l => {
+                const matchCat = activeCat === "all" || l.category === activeCat;
+                const matchSearch = !q ||
+                    l.title.toLowerCase().includes(q) ||
+                    l.titleFr.toLowerCase().includes(q) ||
+                    l.tags.join(" ").toLowerCase().includes(q);
+                return matchCat && matchSearch;
+            });
+
+            document.getElementById("count").textContent =
+                filtered.length + " جزوه";
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="empty">😕 جزوه‌ای پیدا نشد</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(l => {
+                const cat = catInfo(l.category);
+                return `
+                <div class="card" style="border-right-color:${cat.color}">
+                    <span class="card-cat" style="background:${cat.color}">${cat.label}</span>
+                    <h3>${l.badge} ${l.title}</h3>
+                    <div class="fr">${l.titleFr}</div>
+                    <div class="card-tags">
+                        ${l.tags.map(t => `<span>${t}</span>`).join("")}
+                    </div>
+                    ${l.score ? `<div class="card-score">📊 امتیاز: ${l.score}/100</div>` : ""}
+                    <a href="${l.file}" class="btn">باز کردن جزوه ←</a>
+                </div>`;
+            }).join("");
+        }
+
+        buildTabs();
+        render();
+    </script>
 </body>
 </html>
