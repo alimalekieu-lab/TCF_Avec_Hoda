@@ -7,234 +7,280 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        :root {
+            --ink: #1a1a2e;
+            --accent: #533483;
+            --accent2: #0f3460;
+            --soft: #f4f4f8;
+            --line: #e8e8ef;
+        }
+
         body {
-            font-family: 'Tahoma', Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
-            color: #333;
-            line-height: 2;
+            font-family: 'Tahoma', Arial, sans-serif;
+            background: #fbfbfd;
+            color: var(--ink);
+            line-height: 1.9;
             min-height: 100vh;
         }
 
-        .navbar {
-            background: rgba(0,0,0,0.3);
-            padding: 22px 20px;
-            text-align: center;
-            color: white;
+        /* هدر مینیمال */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 22px;
+            border-bottom: 1px solid var(--line);
+            background: white;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        .navbar h1 { font-size: 30px; margin-bottom: 4px; }
-        .navbar p { font-size: 15px; opacity: 0.9; }
+        .topbar .logo {
+            width: 40px; height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+        }
+        .topbar h1 { font-size: 19px; font-weight: 700; }
+        .topbar span { font-size: 13px; color: #999; }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
-
+        /* بخش معرفی — تمام‌صفحه و آرام */
         .hero {
+            min-height: calc(100vh - 85px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            padding: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
+            padding: 40px 24px;
+            transition: min-height 0.5s ease;
         }
-        .hero h2 { font-size: 38px; margin-bottom: 12px; }
-        .hero p { font-size: 18px; opacity: 0.95; }
+        .hero.shrink {
+            min-height: auto;
+            padding: 50px 24px 30px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero .sub {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
 
         /* جستجو */
         .search-box {
-            max-width: 600px;
-            margin: 0 auto 35px;
+            width: 100%;
+            max-width: 540px;
             position: relative;
+            margin-bottom: 26px;
         }
         .search-box input {
             width: 100%;
-            padding: 18px 55px 18px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 15px;
+            padding: 18px 56px 18px 22px;
+            font-size: 17px;
+            border: 2px solid var(--line);
+            border-radius: 16px;
             font-family: inherit;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            background: white;
+            transition: all 0.25s;
         }
-        .search-box input:focus { outline: 3px solid #00d4ff; }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 8px 30px rgba(83,52,131,0.12);
+        }
         .search-box::before {
             content: "🔍";
             position: absolute;
-            left: 20px;
-            top: 50%;
+            left: 20px; top: 50%;
             transform: translateY(-50%);
-            font-size: 22px;
+            font-size: 20px;
+            opacity: 0.5;
         }
 
-        /* تب دسته‌بندی */
+        /* تب‌های دسته */
         .tabs {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            max-width: 760px;
         }
         .tab {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid transparent;
-            padding: 12px 24px;
+            background: white;
+            color: #555;
+            border: 2px solid var(--line);
+            padding: 11px 22px;
             border-radius: 30px;
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
             font-family: inherit;
-            transition: all 0.3s;
+            transition: all 0.25s;
         }
-        .tab:hover { background: rgba(255,255,255,0.25); }
+        .tab:hover { border-color: var(--accent); color: var(--accent); }
         .tab.active {
-            background: white;
-            color: #0f3460;
-            border-color: #00d4ff;
+            background: var(--ink);
+            color: white;
+            border-color: var(--ink);
         }
 
-        /* کارت‌ها */
+        /* بخش نتایج — اولش مخفی */
+        .results {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.4s ease;
+        }
+        .results.show {
+            opacity: 1;
+            max-height: none;
+            overflow: visible;
+        }
+
+        .count {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin: 10px 0 30px;
+        }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 28px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 22px;
         }
         .card {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            border-right: 8px solid #2196f3;
-            transition: all 0.3s;
+            padding: 26px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            transition: all 0.25s;
             display: flex;
             flex-direction: column;
         }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(26,26,46,0.10);
+            border-color: transparent;
+        }
         .card-cat {
             display: inline-block;
-            font-size: 13px;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 700;
             color: white;
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 14px;
             align-self: flex-start;
         }
-        .card h3 { font-size: 22px; color: #0f3460; margin-bottom: 6px; }
+        .card h3 { font-size: 20px; margin-bottom: 6px; }
         .card .fr {
-            font-size: 14px;
-            color: #888;
-            direction: ltr;
-            text-align: left;
-            margin-bottom: 16px;
-            line-height: 1.5;
+            font-size: 13px; color: #999;
+            direction: ltr; text-align: left;
+            margin-bottom: 16px; line-height: 1.5;
         }
-        .card-tags { margin-bottom: 18px; }
+        .card-tags { margin-bottom: 14px; }
         .card-tags span {
             display: inline-block;
-            background: #f0f0f0;
-            color: #555;
-            font-size: 13px;
-            padding: 4px 12px;
-            border-radius: 15px;
+            background: var(--soft);
+            color: #666;
+            font-size: 12px;
+            padding: 4px 11px;
+            border-radius: 14px;
             margin: 3px 3px 3px 0;
         }
         .card-score {
-            font-size: 14px;
-            color: #4caf50;
-            font-weight: bold;
-            margin-bottom: 16px;
+            font-size: 13px; color: #2e9e5b;
+            font-weight: 700; margin-bottom: 16px;
         }
         .card .btn {
-            display: block;
-            text-align: center;
-            background: linear-gradient(135deg, #0f3460 0%, #533483 100%);
-            color: white;
-            padding: 14px;
+            display: block; text-align: center;
+            background: var(--ink);
+            color: white; padding: 13px;
             border-radius: 12px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 17px;
+            font-weight: 700; font-size: 16px;
             margin-top: auto;
-            transition: all 0.3s;
+            transition: all 0.25s;
         }
-        .card .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .card .btn:hover { background: var(--accent); }
 
         .empty {
             grid-column: 1 / -1;
-            text-align: center;
-            color: white;
-            font-size: 20px;
-            padding: 60px;
-            opacity: 0.8;
-        }
-
-        .count {
-            text-align: center;
-            color: white;
-            opacity: 0.8;
-            margin-bottom: 25px;
-            font-size: 15px;
+            text-align: center; color: #aaa;
+            font-size: 18px; padding: 50px;
         }
 
         .footer {
-            background: rgba(0,0,0,0.2);
-            color: white;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 2px solid rgba(255,255,255,0.2);
+            padding: 36px 20px;
+            border-top: 1px solid var(--line);
+            color: #aaa;
+            font-size: 14px;
         }
-        .footer p { font-size: 15px; margin: 8px 0; opacity: 0.9; }
+        .footer strong { color: #666; }
 
         @media (max-width: 768px) {
-            .navbar h1 { font-size: 24px; }
-            .hero h2 { font-size: 26px; }
+            .hero h2 { font-size: 30px; }
+            .hero .sub { font-size: 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>👩‍🏫 TCF avec Hoda KHEDMATI</h1>
-        <p>مدرس رسمی TCF کانادا</p>
+    <div class="topbar">
+        <div class="logo">👩‍🏫</div>
+        <div>
+            <h1>TCF avec Hoda KHEDMATI</h1>
+            <span>مدرس رسمی TCF کانادا</span>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="hero">
-            <h2>🎓 پلتفرم آموزش فرانسه</h2>
-            <p>جزوه‌ها، تحلیل‌ها و منابع آموزشی — همه‌جا، رایگان</p>
-        </div>
+    <div class="hero" id="hero">
+        <h2>یادگیری فرانسه، ساده‌تر</h2>
+        <p class="sub">جزوه‌ها و تحلیل‌های TCF — برای پیدا کردن، جستجو کن یا یک دسته را انتخاب کن</p>
 
         <div class="search-box">
-            <input type="text" id="search" placeholder="جستجو در جزوه‌ها..." oninput="render()">
+            <input type="text" id="search" placeholder="جستجو در جزوه‌ها..." oninput="onSearch()">
         </div>
 
         <div class="tabs" id="tabs"></div>
+    </div>
 
+    <div class="results" id="results">
         <div class="count" id="count"></div>
-
         <div class="grid" id="grid"></div>
     </div>
 
     <div class="footer">
         <p>👩‍🏫 <strong>Hoda KHEDMATI</strong> — مدرس رسمی TCF کانادا</p>
-        <p>متخصص بیان شفاهی — Tâche 3</p>
-        <p style="margin-top:18px; font-size:13px; opacity:0.7;">© 2025 — همه‌ی حقوق محفوظ است</p>
+        <p style="margin-top:6px; font-size:12px;">© 2025 — همه‌ی حقوق محفوظ است</p>
     </div>
 
     <script src="data.js"></script>
     <script>
-        let activeCat = "all";
+        let activeCat = null;   // اولش هیچ دسته‌ای فعال نیست
+        let isOpen = false;     // اولش لیست بسته است
 
-        // ساخت تب‌ها
         function buildTabs() {
             const tabs = document.getElementById("tabs");
-            let html = `<button class="tab ${activeCat==='all'?'active':''}" onclick="setCat('all')">🌟 همه</button>`;
+            let html = `<button class="tab ${activeCat==='all'?'active':''}" onclick="setCat('all')">🌟 همه جزوه‌ها</button>`;
             CATEGORIES.forEach(cat => {
-                // فقط دسته‌هایی که حداقل یک جزوه دارن نشون داده شن
-                const has = LESSONS.some(l => l.category === cat.id);
-                if (has) {
+                if (LESSONS.some(l => l.category === cat.id)) {
                     html += `<button class="tab ${activeCat===cat.id?'active':''}" onclick="setCat('${cat.id}')">${cat.label}</button>`;
                 }
             });
@@ -243,21 +289,51 @@
 
         function setCat(cat) {
             activeCat = cat;
+            document.getElementById("search").value = "";
+            openResults();
             buildTabs();
             render();
+        }
+
+        function onSearch() {
+            const q = document.getElementById("search").value.trim();
+            if (q) {
+                activeCat = null;
+                buildTabs();
+                openResults();
+                render();
+            } else if (!activeCat) {
+                closeResults();
+            }
+        }
+
+        function openResults() {
+            isOpen = true;
+            document.getElementById("results").classList.add("show");
+            document.getElementById("hero").classList.add("shrink");
+            // اسکرول نرم به نتایج
+            setTimeout(() => {
+                document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 250);
+        }
+
+        function closeResults() {
+            isOpen = false;
+            document.getElementById("results").classList.remove("show");
+            document.getElementById("hero").classList.remove("shrink");
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
         function catInfo(id) {
             return CATEGORIES.find(c => c.id === id) || { label: id, color: "#999" };
         }
 
-        // رندر کارت‌ها
         function render() {
             const q = document.getElementById("search").value.trim().toLowerCase();
             const grid = document.getElementById("grid");
 
             let filtered = LESSONS.filter(l => {
-                const matchCat = activeCat === "all" || l.category === activeCat;
+                const matchCat = !activeCat || activeCat === "all" || l.category === activeCat;
                 const matchSearch = !q ||
                     l.title.toLowerCase().includes(q) ||
                     l.titleFr.toLowerCase().includes(q) ||
@@ -265,8 +341,7 @@
                 return matchCat && matchSearch;
             });
 
-            document.getElementById("count").textContent =
-                filtered.length + " جزوه";
+            document.getElementById("count").textContent = filtered.length + " جزوه پیدا شد";
 
             if (filtered.length === 0) {
                 grid.innerHTML = `<div class="empty">😕 جزوه‌ای پیدا نشد</div>`;
@@ -276,13 +351,11 @@
             grid.innerHTML = filtered.map(l => {
                 const cat = catInfo(l.category);
                 return `
-                <div class="card" style="border-right-color:${cat.color}">
+                <div class="card">
                     <span class="card-cat" style="background:${cat.color}">${cat.label}</span>
                     <h3>${l.badge} ${l.title}</h3>
                     <div class="fr">${l.titleFr}</div>
-                    <div class="card-tags">
-                        ${l.tags.map(t => `<span>${t}</span>`).join("")}
-                    </div>
+                    <div class="card-tags">${l.tags.map(t => `<span>${t}</span>`).join("")}</div>
                     ${l.score ? `<div class="card-score">📊 امتیاز: ${l.score}/100</div>` : ""}
                     <a href="${l.file}" class="btn">باز کردن جزوه ←</a>
                 </div>`;
@@ -290,7 +363,6 @@
         }
 
         buildTabs();
-        render();
     </script>
 </body>
 </html>
